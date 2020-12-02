@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}Accueil{% endblock %}
+
+{% block body %}
+    <h2>{{ message }}</h2>
+    <p>Ce site est conçu avec Symfony...</p>
+    <p>Nous sommes le {{ day_date | date('d - m - Y') }}</p>
+
+    {% set toto = 35 %}
+
+    {{ toto }}
+
+    {# ceci est un commentaire #}
+
+    <p>IL est {{ render(controller('App\\Controller\\DefaultController::getTime')) }}</p>
+
+    <h3>Dernier article :</h3>
+    <ul class="latest">
+        <li>
+            <a href="{{ path('article_show', {'id': article.id}) }}">
+                {{ article.title }} (par {{ article.author ? article.author.pseudo }})
+            </a>
+        </li>
+        <li>{{ article.summary }}</li>
+    </ul>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}Nous contacter{% endblock %}
+
+{% block body %}
+    {{ form_start(mail_form) }}
+    {{ form_row(mail_form.email, {'value': app.user ? app.user.email : ''}) }}
+    {{ form_row(mail_form.pseudo, {'value': app.user ? app.user.author.pseudo : ''}) }}
+    {{ form_row(mail_form.subject) }}
+    {{ form_row(mail_form.message) }}
+    <input type="submit" value="Envoyer">
+    {{ form_end(mail_form) }}
+{% endblock %}

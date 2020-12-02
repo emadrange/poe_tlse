@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}Profil{% endblock %}
+
+{% block body %}
+    <ul class="profile">
+        {% if user.author %}
+        <li><img src="{{ vich_uploader_asset(user.author) }}"></li>
+        {% endif %}
+        <li>Mail : {{ user.email }}</li>
+        <li>Nom : {{ user.lastname }}</li>
+        <li>Prénom : {{ user.firstname }} </li>
+        <li>Pseudo : {{ user.author ? user.author.pseudo : '' }}</li>
+    </ul>
+    <p>
+        <a href="{{ path('edit_profile', {'id': user.id}) }}">Editer le profil</a>
+        <a href="{{ path('change_password', {'id': user.id}) }}">Changer le mot de passe</a>
+    </p>
+{% endblock %}

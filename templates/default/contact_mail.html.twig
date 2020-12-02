@@ -1,0 +1,7 @@
+<h1>{{ title }}</h1>
+
+<p>Message provenant de {{ data.pseudo }} ({{ data.email }}) :</p>
+<h4>Objet du mail : {{ data.subject }}</h4>
+<h4>Envoyé le : {{ day_date | date('d - m - Y') }}</h4>
+<h4>Message :</h4>
+<p>{{ data.message | nl2br }}</p>

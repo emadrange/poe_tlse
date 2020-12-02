@@ -1,0 +1,7 @@
+article:
+    validator:
+        title:
+            min_message: Votre titre est trop court.
+        summary:
+            min_message: Désolé, votre résumé est trop court.
+            blank_message: Vous ne pouvez pas laisser le champ vide.

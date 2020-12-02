@@ -1,0 +1,64 @@
+body {
+    background-color: antiquewhite;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-form {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.mail-header {
+    text-align: right;
+}
+
+.menu, .latest, .profile {
+    list-style: none;
+}
+
+.right {
+    margin-right: 30px;
+}
+
+.menu li {
+    display: inline-block;
+    background-color: maroon;
+    box-shadow: 2px 2px 5px black;
+    margin: 2px;
+    padding: 4px;
+}
+
+.menu li a {
+    color: yellow;
+    text-decoration: none;
+}
+
+.menu li a:hover {
+    text-decoration: underline;
+}
+
+header {
+    border-bottom: solid gray 1px;
+}
+
+footer {
+    border-top: solid gray 1px;
+}
+
+footer div {
+    text-align: center;
+}
+
+.cut-text {
+    max-width: 400px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+

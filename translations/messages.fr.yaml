@@ -1,0 +1,41 @@
+create_new_article: Créer un nouvel article
+
+Yes: oui
+No: non
+
+contact_us:
+    success: Votre mail est bien envoyé.
+    form:
+        email: {label: Votre mail}
+        pseudo: {label: Votre pseudo}
+        subject: {label: Votre objet}
+        message: {label: Votre message}
+
+password:
+    danger: Vous ne pouvez pas changer un mot de passe comme ça.
+
+home:
+    message_1: Bienvenue sur la session %poe%.
+    message_2: Bonjour, vous êtes bien sur la session %poe%.
+    message_3: La session %poe% vous accueille avec plaisir.
+
+# réservé à l'entité Article
+
+article:
+    title: Titre
+    author: Auteur
+    new:
+        success: 'Votre article "%title%" est enregistré.'
+        warning: 'Vous devez renseigner votre profil avant de créer un article.'
+    edit:
+        success: 'Votre article "%title%" est modifié.'
+    form:
+        title: {label: Votre titre}
+        summary: {label: Votre résumé}
+        content: {label: Votre contenu}
+        category:
+            label: Catégorie
+            placeholder: Choisissez une catégorie
+        published: {label: Publié}
+
+# Réservé à l'entité Category

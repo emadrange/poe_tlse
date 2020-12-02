@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <h1>Article</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ article.title }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>
+                    {% if article.image %}
+                    <img src="{{ vich_uploader_asset(article) }}" alt="{{ article.image }}">
+                    {% else %}
+                    aucune image
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Summary</th>
+                <td>{{ article.summary }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ article.content }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Published</th>
+                <td>{{ article.published ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <section>
+        <h4>Les commentaires</h4>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {{ form_start(comment_form) }}
+        {{ form_widget(comment_form) }}
+        <input type="submit" value="Commenter">
+        {{ form_end(comment_form) }}
+        {% endif %}
+        <ul class="comment">
+            {% for comment in comments %}
+                <li>
+                    <h5>De {{ comment.author.pseudo }} le {{ comment.createdAt | date('d - m - Y') }}</h5>
+                    <p>{{ comment.content }}</p>
+                </li>
+            {% else %}
+                <li>Aucun commentaire.</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <a href="{{ path('article_index') }}">back to list</a>
+
+    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+
+    {{ include('article/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}Résultat des recherches{% endblock %}
+
+{% block body %}
+    <h4>Nombre de résulat de votre recherche : {{ results | length }}</h4>
+    <ul>
+        {% for result in results %}
+            <li>
+                <h5>{{ result.title }}</h5>
+                <p>{{ result.summary }}</p>
+                <a href="{{ path('article_show', {'id': result.id}) }}">Voir la suite</a>
+            </li>
+        {% else %}
+            <li>
+                Auncun résultat
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
