@@ -7,8 +7,9 @@
     <ul>
         {% for result in results %}
             <li>
-                <h5>{{ result.title }}</h5>
-                <p>{{ result.summary }}</p>
+                <h5>{{ result.title | highlight(word) | raw }}</h5>
+                <p>{{ result.summary | highlight(word) | raw }}</p>
+                <p class="cut-text">{{ result.content | highlight(word) | raw }}</p>
                 <a href="{{ path('article_show', {'id': result.id}) }}">Voir la suite</a>
             </li>
         {% else %}

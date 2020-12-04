@@ -60,5 +60,10 @@ footer div {
     overflow: hidden;
 }
 
+.highlight {
+    background-color: greenyellow;
+    color: black;
+}
+
 
 

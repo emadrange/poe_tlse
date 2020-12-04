@@ -149,14 +149,15 @@ class DefaultController extends AbstractController
     public function search(Request $request, ArticleRepository $articleRepository)
     {
         $results = null;
+        $word = '';
         if ('GET' === $request->getMethod() && $request->query->has('search')) {
-            $results = $articleRepository->findByWord(
-                $request->query->get('search_engine')['word']
-            );
+            $word = $request->query->get('search_engine')['word'];
+            $results = $articleRepository->findByWord($word);
         }
 
         return $this->render('default/search.html.twig', [
             'results' => $results ? $results : $articleRepository->findAll(),
+            'word' => $word,
         ]);
     }
 
